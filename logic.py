@@ -33,12 +33,12 @@ def hierarchical_clustering(data_file):
     scaler = StandardScaler()
     data_scale = scaler.fit_transform(data_file)
 
-    c_matrix = linkage(data_scale, method='ward')
+    c_matrix = linkage(data_scale, method='complete')
 
     plt.figure(figsize=(12, 8))
     dendrogram(c_matrix)
-    plt.xlabel('X')
-    plt.ylabel('Y')
+    plt.tick_params(axis='x', labelbottom=False)
+    plt.ylabel('Расстояние')
     plt.title('Иерархическая кластеризация')
     plt.show()
 
